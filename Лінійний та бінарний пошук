@@ -1,0 +1,41 @@
+const pages = Array.from({ length: 215 }, (_, i) => i + 1);
+
+function linearSearch(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return `Page ${target} founded on index ${i}`;
+        }
+    }
+    return `Page ${target} not founded`;
+}
+
+const targetPage = 99;
+console.log(linearSearch(pages, targetPage));
+
+
+
+
+
+const pages = Array.from({ length: 215 }, (_, i) => i + 1);
+
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+
+        if (arr[mid] === target) {
+            return `Page ${target} founded on index ${mid}`;
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return `Page ${target} not founded`;
+}
+
+const targetPage = 165;
+console.log(binarySearch(pages, targetPage));
